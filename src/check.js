@@ -101,7 +101,7 @@ export async function check(options = {}, { log = () => {} } = {}) {
 
     const count = (v) => results.filter((r) => r.verdict === v).length;
     return {
-      tool: 'crawler-prerender',
+      tool: 'crawler-snapshot',
       version: VERSION,
       generatedAt: new Date().toISOString(),
       base: job.origin,
@@ -152,7 +152,7 @@ export function formatCheckTable(report) {
   );
 
   const lines = [
-    `crawler-prerender check   ${report.base}`,
+    `crawler-snapshot check   ${report.base}`,
     `crawler request as ${report.crawler.name}${report.crawler.documentedString ? '' : ' (UA string not published by the vendor, so a generic one was used)'}`,
     '',
     table,

@@ -1,20 +1,20 @@
 {
-  "name": "crawler-prerender",
+  "name": "crawler-snapshot",
   "version": "0.1.0",
   "description": "Snapshot JavaScript-rendered pages with your own Chrome, check what crawlers actually see, and serve the snapshot to AI and search bots.",
   "type": "module",
   "license": "MIT",
   "author": "Reidify (https://reidify.design)",
-  "homepage": "https://github.com/reidifydesign/crawler-prerender#readme",
+  "homepage": "https://github.com/reidifydesign/crawler-snapshot#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/reidifydesign/crawler-prerender.git"
+    "url": "git+https://github.com/reidifydesign/crawler-snapshot.git"
   },
   "bugs": {
-    "url": "https://github.com/reidifydesign/crawler-prerender/issues"
+    "url": "https://github.com/reidifydesign/crawler-snapshot/issues"
   },
   "bin": {
-    "crawler-prerender": "./bin/crawler-prerender.js"
+    "crawler-snapshot": "./bin/crawler-snapshot.js"
   },
   "exports": {
     ".": "./src/index.js",

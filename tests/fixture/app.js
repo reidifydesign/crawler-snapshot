@@ -2,7 +2,7 @@
 const PAGES = {
   '/': {
     title: 'Fixture Shop | Home',
-    description: 'A fixture shop used to test crawler-prerender.',
+    description: 'A fixture shop used to test crawler-snapshot.',
     canonical: '/',
     h1: 'Fixture Shop',
     body: [

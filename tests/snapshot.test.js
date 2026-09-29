@@ -47,7 +47,7 @@ describe('snapshot', { skip }, () => {
     const home = html('index.html');
     assert.match(home, /<script type="application\/ld\+json">\{"@context":"https:\/\/schema.org","@type":"Organization"/);
     assert.match(home, /<title>Fixture Shop \| Home<\/title>/);
-    assert.match(home, /<meta name="description" content="A fixture shop used to test crawler-prerender.">/);
+    assert.match(home, /<meta name="description" content="A fixture shop used to test crawler-snapshot.">/);
     assert.match(home, /<link rel="canonical" href="http:\/\/127\.0\.0\.1:\d+\/">/);
   });
 
@@ -85,7 +85,7 @@ describe('snapshot', { skip }, () => {
 
   test('manifest records route, status, bytes, title, JSON-LD count and render time', () => {
     const m = manifest();
-    assert.equal(m.tool, 'crawler-prerender');
+    assert.equal(m.tool, 'crawler-snapshot');
     const home = entry('/');
     assert.equal(home.status, 200);
     assert.equal(home.ok, true);

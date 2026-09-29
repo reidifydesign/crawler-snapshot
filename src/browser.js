@@ -66,5 +66,5 @@ export async function launchBrowser({ executablePath, env = process.env } = {}) 
 /** A desktop UA built from the running browser, with an honest suffix and no "Headless". */
 export function defaultUserAgent(browser, version) {
   const chrome = (browser.version() || '131.0.0.0').replace(/^[^\d]*/, '');
-  return `Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/${chrome} Safari/537.36 crawler-prerender/${version}`;
+  return `Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/${chrome} Safari/537.36 crawler-snapshot/${version}`;
 }

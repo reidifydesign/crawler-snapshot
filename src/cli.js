@@ -6,12 +6,12 @@ import { snapshot } from './snapshot.js';
 import { renderTable } from './table.js';
 import { VERSION } from './version.js';
 
-const HELP = `crawler-prerender ${VERSION}
+const HELP = `crawler-snapshot ${VERSION}
 
 Usage
-  crawler-prerender check    <url> [options]   what crawlers see, against what a browser sees
-  crawler-prerender snapshot <url> [options]   render routes with your own Chrome, save the HTML
-  crawler-prerender agents   [--format table|regex|nginx|json|tokens]
+  crawler-snapshot check    <url> [options]   what crawlers see, against what a browser sees
+  crawler-snapshot snapshot <url> [options]   render routes with your own Chrome, save the HTML
+  crawler-snapshot agents   [--format table|regex|nginx|json|tokens]
 
 Where the routes come from (check and snapshot)
   <url>                 a single page. snapshot follows same-origin links by default, check does not
@@ -31,7 +31,7 @@ Rendering
   --concurrency <n>     pages at once, default 2
   --delay <ms>          pause after each page per worker, default 250
   --load-assets         load images, media and fonts (blocked by default)
-  --user-agent <ua>     UA for the browser (default: Chrome plus a crawler-prerender suffix)
+  --user-agent <ua>     UA for the browser (default: Chrome plus a crawler-snapshot suffix)
 
 snapshot only
   --out <dir>           output directory, default out

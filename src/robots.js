@@ -3,7 +3,7 @@
  * It is here so the link crawl is polite by default. Sitemap and routes-file inputs are
  * explicit lists and are not filtered by it.
  */
-export function parseRobots(text, token = 'crawler-prerender') {
+export function parseRobots(text, token = 'crawler-snapshot') {
   const groups = [];
   let cur = null;
   let lastWasAgent = false;

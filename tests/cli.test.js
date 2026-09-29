@@ -8,7 +8,7 @@ import { startFixture } from './fixture/server.js';
 import { browserSkip, tmp } from './helpers.js';
 
 const skip = browserSkip();
-const BIN = new URL('../bin/crawler-prerender.js', import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, '$1');
+const BIN = new URL('../bin/crawler-snapshot.js', import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, '$1');
 
 /** Run the CLI in-process and capture output. */
 async function run(args) {
@@ -21,7 +21,7 @@ async function run(args) {
 test('help lists the three commands and exits 0; no arguments exits 1', async () => {
   const r = await run(['--help']);
   assert.equal(r.code, 0);
-  for (const c of ['check', 'snapshot', 'agents']) assert.match(r.out, new RegExp(`crawler-prerender ${c}`));
+  for (const c of ['check', 'snapshot', 'agents']) assert.match(r.out, new RegExp(`crawler-snapshot ${c}`));
   assert.equal((await run([])).code, 1);
 });
 

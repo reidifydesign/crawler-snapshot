@@ -18,7 +18,7 @@ export const tmp = (prefix = 'cp-') => mkdtempSync(join(tmpdir(), prefix));
 export function writeSnapshot(dir, route, body) {
   const file = join(dir, route === '/' ? '' : route, 'index.html');
   mkdirSync(dirname(file), { recursive: true });
-  writeFileSync(file, `<!DOCTYPE html><!-- crawler-prerender test: snapshot -->\n<html><body>${body}</body></html>`);
+  writeFileSync(file, `<!DOCTYPE html><!-- crawler-snapshot test: snapshot -->\n<html><body>${body}</body></html>`);
 }
 
 /** Small http helper that returns status, headers and text. */

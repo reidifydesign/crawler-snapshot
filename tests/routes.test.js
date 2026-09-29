@@ -67,7 +67,7 @@ test('robots.txt: the longest matching rule wins and wildcards work', () => {
 });
 
 test('robots.txt: a group naming this tool beats the * group', () => {
-  const r = parseRobots('User-agent: *\nDisallow: /\n\nUser-agent: crawler-prerender\nAllow: /\n');
+  const r = parseRobots('User-agent: *\nDisallow: /\n\nUser-agent: crawler-snapshot\nAllow: /\n');
   assert.equal(r.isAllowed('/x'), true);
 });
 

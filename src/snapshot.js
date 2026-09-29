@@ -21,7 +21,7 @@ async function loadManifest(outDir) {
 async function saveManifest(outDir, base, entries) {
   const routes = [...entries.values()].sort((a, b) => a.route.localeCompare(b.route));
   const body = {
-    tool: 'crawler-prerender',
+    tool: 'crawler-snapshot',
     version: VERSION,
     base,
     updatedAt: new Date().toISOString(),
@@ -111,7 +111,7 @@ export async function snapshot(options = {}, { log = () => {} } = {}) {
         stats.redirected++;
         log(`skip  ${key}  redirected to ${landed}`);
       } else {
-        const banner = `<!-- crawler-prerender ${VERSION}: snapshot of ${url} taken ${entry.renderedAt} -->\n`;
+        const banner = `<!-- crawler-snapshot ${VERSION}: snapshot of ${url} taken ${entry.renderedAt} -->\n`;
         const html = r.html.replace(/^(<!doctype[^>]*>\s*)?/i, (m) => `${m}${banner}`);
         const file = routeToFile(outDir, key);
         await mkdir(dirname(file), { recursive: true });

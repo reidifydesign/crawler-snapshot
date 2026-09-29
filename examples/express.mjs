@@ -1,11 +1,11 @@
 // Express. Put the snapshot middleware before your static files and your SPA fallback.
 //
-//   npm install express crawler-prerender
-//   crawler-prerender snapshot https://your-site.example --out out
+//   npm install express crawler-snapshot
+//   crawler-snapshot snapshot https://your-site.example --out out
 //   node examples/express.mjs
 import path from 'node:path';
 import express from 'express';
-import { createSnapshotMiddleware } from 'crawler-prerender/serve';
+import { createSnapshotMiddleware } from 'crawler-snapshot/serve';
 
 export function createApp({ snapshotDir = 'out', appDir = 'dist' } = {}) {
   const app = express();

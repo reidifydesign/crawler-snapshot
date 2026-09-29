@@ -1,4 +1,4 @@
-# crawler-prerender
+# crawler-snapshot
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Node](https://img.shields.io/badge/node-%3E%3D18.3-brightgreen.svg)](package.json)
@@ -8,9 +8,9 @@ Find out what AI and search crawlers really see on your JavaScript site, then sa
 <!-- TODO(Rish): add the hero or social preview image here, for example ![check output](docs/check-output.png). The block below is the interim visual, captured from the test fixture. -->
 
 ```text
-$ crawler-prerender check http://127.0.0.1:4599 --sitemap http://127.0.0.1:4599/sitemap.xml
+$ crawler-snapshot check http://127.0.0.1:4599 --sitemap http://127.0.0.1:4599/sitemap.xml
 
-crawler-prerender check   http://127.0.0.1:4599
+crawler-snapshot check   http://127.0.0.1:4599
 crawler request as GPTBot
 
 ROUTE             RAW TEXT  RENDERED  SEEN   H1  LINKS  JSON-LD  VERDICT
@@ -34,10 +34,8 @@ That is the fixture in `tests/fixture`, a small vanilla JS app built to fail. Th
 ## Run it
 
 ```sh
-npx crawler-prerender check https://your-site.example --crawl
+npx github:reidifydesign/crawler-snapshot check https://your-site.example --crawl
 ```
-
-<!-- TODO(Rish): the package name is not final and nothing is published to npm. See NAMING.md. Update this line and the repository links after the rename. -->
 
 You need Chrome, Edge or Chromium installed. The tool drives it and downloads nothing. Node 18.3 or newer.
 
@@ -49,7 +47,7 @@ The cause was one Suspense boundary above the route tree. When the site was prer
 
 Browsers never showed the problem, because React rebuilds the page when it mounts. Only readers of the served HTML were affected, which is exactly who prerendering is for. Measured on one route, the text inside `<main>` went from 160 characters to 42,645 after the fix. With JavaScript off, a route went from an empty `<main>` to between 1,937 and 7,195 characters. The first heading a crawler met had been the footer's wordmark.
 
-A check that counted characters did not catch it, because characters inside a hidden div are still characters. The check that did catch it read document structure. `crawler-prerender check` is that second kind of check, made general. `snapshot` and the serve examples are the fix for sites that cannot move to server rendering.
+A check that counted characters did not catch it, because characters inside a hidden div are still characters. The check that did catch it read document structure. `crawler-snapshot check` is that second kind of check, made general. `snapshot` and the serve examples are the fix for sites that cannot move to server rendering.
 
 ## What it does
 
@@ -62,11 +60,11 @@ A check that counted characters did not catch it, because characters inside a hi
 ## check
 
 ```sh
-crawler-prerender check https://your-site.example                     # one page
-crawler-prerender check https://your-site.example --crawl --depth 2   # follow links
-crawler-prerender check https://your-site.example --sitemap https://your-site.example/sitemap.xml
-crawler-prerender check https://your-site.example --routes routes.txt --json report.json
-crawler-prerender check https://your-site.example --as ClaudeBot --fail-on warn
+crawler-snapshot check https://your-site.example                     # one page
+crawler-snapshot check https://your-site.example --crawl --depth 2   # follow links
+crawler-snapshot check https://your-site.example --sitemap https://your-site.example/sitemap.xml
+crawler-snapshot check https://your-site.example --routes routes.txt --json report.json
+crawler-snapshot check https://your-site.example --as ClaudeBot --fail-on warn
 ```
 
 For every route it compares the raw response with the rendered DOM:
@@ -83,9 +81,9 @@ Each route gets OK, WARN or FAIL, and each finding says what it saw. The lines a
 ## snapshot
 
 ```sh
-crawler-prerender snapshot https://your-site.example --out out
-crawler-prerender snapshot https://your-site.example --sitemap https://your-site.example/sitemap.xml
-crawler-prerender snapshot https://your-site.example --routes routes.txt --wait-for "main h1"
+crawler-snapshot snapshot https://your-site.example --out out
+crawler-snapshot snapshot https://your-site.example --sitemap https://your-site.example/sitemap.xml
+crawler-snapshot snapshot https://your-site.example --routes routes.txt --wait-for "main h1"
 ```
 
 - **Routes** come from a sitemap URL (indexes are followed), a routes file (one route or URL per line, or a JSON array), or a same-origin link crawl from the base URL. A crawl defaults to depth 2 and 100 pages, reads `robots.txt`, and skips files such as PDFs and images. Only the origin you gave is visited.
@@ -105,7 +103,7 @@ Every example does the same three things: serve the snapshot to a listed crawler
 
 ```js
 import { createServer } from 'node:http';
-import { createSnapshotMiddleware } from 'crawler-prerender/serve';
+import { createSnapshotMiddleware } from 'crawler-snapshot/serve';
 
 const snapshots = createSnapshotMiddleware({ dir: 'out' });
 createServer((req, res) => snapshots(req, res, () => yourApp(req, res))).listen(3000);
@@ -115,7 +113,7 @@ createServer((req, res) => snapshots(req, res, () => yourApp(req, res))).listen(
 
 ```js
 import express from 'express';
-import { createSnapshotMiddleware } from 'crawler-prerender/serve';
+import { createSnapshotMiddleware } from 'crawler-snapshot/serve';
 
 const app = express();
 app.use(createSnapshotMiddleware({ dir: 'out' })); // before static files and the SPA fallback
@@ -130,7 +128,7 @@ The Node, Express and Netlify examples are covered by the test suite, including 
 
 ### The crawler list
 
-One data file, [data/crawlers.json](data/crawlers.json), has every user agent with the vendor page it was read from, the date, and whether it was verified. Print it with `crawler-prerender agents`. The nginx and Netlify examples are generated from it (`npm run sync-examples`), and a test fails if they drift.
+One data file, [data/crawlers.json](data/crawlers.json), has every user agent with the vendor page it was read from, the date, and whether it was verified. Print it with `crawler-snapshot agents`. The nginx and Netlify examples are generated from it (`npm run sync-examples`), and a test fails if they drift.
 
 Things to know about the list:
 

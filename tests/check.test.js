@@ -22,7 +22,7 @@ describe('check against the plain fixture site', { skip }, () => {
 
   test('sends the crawler user agent on the raw request and a browser user agent on the render', () => {
     const rawHit = fx.seen.find((s) => s.path === '/about' && /GPTBot/.test(s.ua));
-    const browserHit = fx.seen.find((s) => s.path === '/about' && /Chrome\/.*crawler-prerender/.test(s.ua));
+    const browserHit = fx.seen.find((s) => s.path === '/about' && /Chrome\/.*crawler-snapshot/.test(s.ua));
     assert.ok(rawHit, 'a GPTBot request for /about');
     assert.ok(browserHit, 'a browser request for /about');
     assert.equal(report.crawler.name, 'GPTBot');
@@ -82,7 +82,7 @@ describe('check against the plain fixture site', { skip }, () => {
 
   test('the report is JSON serialisable and carries the crawler used', () => {
     const round = JSON.parse(JSON.stringify(report));
-    assert.equal(round.tool, 'crawler-prerender');
+    assert.equal(round.tool, 'crawler-snapshot');
     assert.equal(round.crawler.userAgent.includes('GPTBot'), true);
     assert.ok(round.routes.every((r) => typeof r.verdict === 'string' && Array.isArray(r.issues)));
   });

@@ -1,6 +1,6 @@
 // Plain Node http server. Crawlers get the snapshot, everyone else gets the app.
 //
-//   crawler-prerender snapshot https://your-site.example --out out
+//   crawler-snapshot snapshot https://your-site.example --out out
 //   SNAPSHOT_DIR=out APP_DIR=dist node examples/node-http.mjs
 //
 // Every page response carries "Vary: User-Agent", so a cache in front never hands a
@@ -8,7 +8,7 @@
 import { createServer } from 'node:http';
 import { createReadStream, existsSync, statSync } from 'node:fs';
 import { extname, join, normalize } from 'node:path';
-import { createSnapshotMiddleware } from 'crawler-prerender/serve';
+import { createSnapshotMiddleware } from 'crawler-snapshot/serve';
 
 const TYPES = {
   '.html': 'text/html; charset=utf-8',
