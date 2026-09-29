@@ -5,7 +5,10 @@
 
 Find out what AI and search crawlers really see on your JavaScript site, then save real HTML for them using the Chrome you already have. Free, self-hosted, no account.
 
-<!-- TODO(Rish): add the hero or social preview image here, for example ![check output](docs/check-output.png). The block below is the interim visual, captured from the test fixture. -->
+![crawler-snapshot check on the test fixture: four of five routes fail because their content only appears after JavaScript runs, including a streamed Suspense-style chunk hidden in the raw HTML](docs/check-output.png)
+
+<details>
+<summary>The same output as text</summary>
 
 ```text
 $ crawler-snapshot check http://127.0.0.1:4599 --sitemap http://127.0.0.1:4599/sitemap.xml
@@ -28,6 +31,8 @@ ROUTE             RAW TEXT  RENDERED  SEEN   H1  LINKS  JSON-LD  VERDICT
 
 5 route(s): 1 ok, 0 warn, 4 fail
 ```
+
+</details>
 
 That is the fixture in `tests/fixture`, a small vanilla JS app built to fail. The detail lines for the other three failing routes are left out here. The full output and the JSON report have them.
 
