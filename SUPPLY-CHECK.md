@@ -20,6 +20,7 @@ field is more crowded than the first research suggested.
 | kopachlager/prerenderbuddy-engine | 0 | 2026-09-27 | Apache-2.0 | Docker render engine that is the free half of a hosted platform | Token-gated API, hosted platform is the product |
 | giacomorebonato/fastify-prerender-plugin | 0 | 2026-09-28 | none stated | Fastify plugin, bot detection, Lightpanda browser | Fastify only, Node 22 |
 | solidjs/prerender-crawler | 5 | 2026-09-06 | MIT | Build-time crawl of a fetch-shaped handler | Not a browser, framework specific |
+| lzwme/prerender-kit (@lzwme/prerender-kit) | 1 | 2026-09-08 | MIT | Headless-browser SPA route snapshots to static HTML, CLI and Vite/webpack/rollup plugins, incremental. Documentation is in Chinese. Found during the naming check | No crawler serving layer, no diagnostic |
 | Trident PRISM (trident-prism.com) | n/a | n/a | commercial | Rust dynamic rendering proxy, 70+ bot patterns, self-hosted | Sold at a one-off price on its own page, not free, no repo link |
 | prerender-node / prerender_rails | 921 / 358 | 2026-06 | MIT | Middleware for the paid Prerender.io service | The render engine is not open |
 | rendertron | 5,950 | archived 2022 | Apache-2.0 | Original render server | Archived |
