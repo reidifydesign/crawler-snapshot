@@ -180,10 +180,10 @@
       "serve": true,
       "runsJavaScript": "yes",
       "userAgent": "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm) Chrome/W.X.Y.Z Safari/537.36",
-      "source": "https://blogs.bing.com/webmaster/2022/4/Announcing-user-agent-change-for-Bing-crawler-bingbot/",
-      "verification": "partial",
+      "source": "https://www.bing.com/webmasters/help/which-crawlers-does-bing-use-8c184ec0",
+      "verification": "verified",
       "checked": "2026-09-29",
-      "notes": "UA string read from Bing's own help and blog pages as returned by a search, because the pages themselves did not load for the fetch tool. Bing states bingbot uses an evergreen Edge, which is why the JavaScript field says yes, but that statement was not re-read on the page. Re-verify before relying on it."
+      "notes": "UA string read verbatim from Bing's crawler help page in a real browser on 2026-09-29 (the page is client-rendered). The same page lists a legacy form, Mozilla/5.0 (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm), and a mobile form; the token match covers all three. JavaScript: the page says \"We regularly update our web page rendering engine to the most recent stable version of Microsoft Edge\"."
     },
     {
       "name": "Applebot",
