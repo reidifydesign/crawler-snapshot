@@ -138,7 +138,7 @@ One data file, [data/crawlers.json](data/crawlers.json), has every user agent wi
 Things to know about the list:
 
 - `Google-Extended` and `Applebot-Extended` are in the file, marked as control tokens, and are never served. Google describes Google-Extended as a robots.txt product token, and Apple says Applebot-Extended does not crawl. No request will carry either, so putting them in an allowlist does nothing.
-- `bingbot` is marked `partial`. Its User-Agent string was read from Bing's own pages as returned by a search, because the pages did not load for the fetch. Check it before you rely on it.
+- `bingbot` was read from Bing's own crawler page on 2026-09-29. Version 0.1.0 on npm still marks it `partial`; 0.1.1 carries the verified entry.
 - For most entries the vendor does not say whether the crawler runs JavaScript, and the file says "not-documented" rather than guessing. Googlebot documents that it does. Apple documents that Applebot may.
 - The list is not complete. Add your own with `createSnapshotMiddleware({ userAgents: ['MyBot'] })`.
 
