@@ -34,7 +34,7 @@ That is the fixture in `tests/fixture`, a small vanilla JS app built to fail. Th
 ## Run it
 
 ```sh
-npx github:reidifydesign/crawler-snapshot check https://your-site.example --crawl
+npx crawler-snapshot check https://your-site.example --crawl
 ```
 
 You need Chrome, Edge or Chromium installed. The tool drives it and downloads nothing. Node 18.3 or newer.
