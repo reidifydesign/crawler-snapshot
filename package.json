@@ -1,0 +1,64 @@
+{
+  "name": "crawler-prerender",
+  "version": "0.1.0",
+  "description": "Snapshot JavaScript-rendered pages with your own Chrome, check what crawlers actually see, and serve the snapshot to AI and search bots.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Reidify (https://reidify.design)",
+  "homepage": "https://github.com/reidifydesign/crawler-prerender#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reidifydesign/crawler-prerender.git"
+  },
+  "bugs": {
+    "url": "https://github.com/reidifydesign/crawler-prerender/issues"
+  },
+  "bin": {
+    "crawler-prerender": "./bin/crawler-prerender.js"
+  },
+  "exports": {
+    ".": "./src/index.js",
+    "./serve": "./src/serve.js",
+    "./crawlers.json": "./data/crawlers.json",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "bin",
+    "src",
+    "data",
+    "examples",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18.3"
+  },
+  "scripts": {
+    "test": "node --test",
+    "fixture": "node tests/fixture/run.js 4599",
+    "sync-examples": "node scripts/sync-examples.mjs"
+  },
+  "keywords": [
+    "prerender",
+    "prerendering",
+    "spa",
+    "seo",
+    "aeo",
+    "geo",
+    "ai-crawlers",
+    "gptbot",
+    "claudebot",
+    "perplexitybot",
+    "headless-chrome",
+    "playwright",
+    "dynamic-rendering",
+    "snapshot",
+    "json-ld"
+  ],
+  "dependencies": {
+    "playwright-core": "^1.63.0"
+  },
+  "devDependencies": {
+    "express": "^4.22.3"
+  }
+}
