@@ -1,0 +1,7 @@
+# A routes file used by test/routes.test.js
+/
+/about
+/about/
+/keep
+/skip/this
+https://other.example.com/elsewhere
