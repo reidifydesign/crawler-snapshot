@@ -1,6 +1,6 @@
 {
   "name": "crawler-snapshot",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Snapshot JavaScript-rendered pages with your own Chrome, check what crawlers actually see, and serve the snapshot to AI and search bots.",
   "type": "module",
   "license": "MIT",
